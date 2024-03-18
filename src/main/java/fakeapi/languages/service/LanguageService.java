@@ -1,94 +1,56 @@
 package fakeapi.languages.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import fakeapi.languages.global.Params;
 import fakeapi.languages.model.LanguageModel;
+import fakeapi.languages.repository.IAuthorLanguageRepository;
 import fakeapi.languages.repository.ILanguageRepository;
+import fakeapi.languages.repository.IParadigmLanguageRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author Pancho1402
  */
+@Transactional
 @Service
-public class LanguageService implements ILanguageRepository {
-
-    @Override
-    public List<LanguageModel> getAllLanguages() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        File file = new File("languages.json");
-
-        return Arrays.asList(objectMapper.readValue(file, LanguageModel[].class));
+public class LanguageService {
+    private final ILanguageRepository repository;
+    private final IAuthorLanguageRepository authorLanguageRepository;
+    private final IParadigmLanguageRepository paradigmLanguageRepository;
+    @Autowired
+    public LanguageService(ILanguageRepository repository, IAuthorLanguageRepository authorLanguageRepository, IParadigmLanguageRepository paradigmLanguageRepository) {
+        this.repository = repository;
+        this.authorLanguageRepository = authorLanguageRepository;
+        this.paradigmLanguageRepository = paradigmLanguageRepository;
     }
 
-    @Override
-    public LanguageModel getLanguageById(Integer id) throws IOException {
-        List<LanguageModel> list = getAllLanguages();
-
-        return Params.filter(list,
-                element -> element.getId().equals(id));
+    public List<LanguageModel> getAllLanguages() {
+        return repository.findAll();
     }
 
-    @Override
-    public LanguageModel getLanguageByName(String name) throws IOException {
-        List<LanguageModel> list = getAllLanguages();
-
-        return Params.filter(list,
-                element -> element.getName().equals(name));
+    public LanguageModel getLanguageById(Integer id) {
+        return repository.findById(id).orElse(null);
     }
 
-    @Override
-    public List<LanguageModel> postLanguages(List<LanguageModel> languages) throws IOException {
-        List<LanguageModel> list = new ArrayList<>(getAllLanguages());
-        list.addAll(languages);
-
-        return list;
+    public LanguageModel getLanguageByName(String name) {
+        return repository.findByName(name).orElse(null);
     }
 
-    @Override
-    public List<LanguageModel> postLanguage(LanguageModel language) throws IOException{
-        List<LanguageModel> list = new ArrayList<>(getAllLanguages());
-        list.add(language);
-
-        return list;
+    public List<LanguageModel> deleteLanguage(Integer id) {
+        authorLanguageRepository.deleteByLanguageId(id);
+        paradigmLanguageRepository.deleteByLanguageId(id);
+        repository.deleteById(id);
+        return getAllLanguages();
     }
 
-    @Override
-    public List<LanguageModel> putLanguage(Integer id, LanguageModel language) throws IOException {
-        List<LanguageModel> list = new LinkedList<>(getAllLanguages());
+    public List<LanguageModel> getLanguageByParams(Integer min, Integer max) {
+        final List<LanguageModel> list = getAllLanguages();
 
-        list.stream()
-                .filter(element -> element.getId().equals(id))
-                .forEach(element -> {
-                    element.setName(language.getName());
-                    element.setDescription(language.getDescription());
-                    element.setYear(language.getYear());
-                    element.setLevel(language.getLevel());
-                    element.setOpenSource(language.getOpenSource());
-                    element.setAuthor(language.getAuthor());
-                    element.setParadigm(language.getParadigm());
-                });
-
-        return list;
-    }
-
-    @Override
-    public List<LanguageModel> deleteLanguage(Integer id) throws IOException {
-        List<LanguageModel> list = new LinkedList<>(getAllLanguages());
-        list.removeIf(element -> element.getId().equals(id));
-
-        return list;
-    }
-
-    @Override
-    public List<LanguageModel> getLanguageByParams(Integer min,  Integer max) throws IOException {
-        List<LanguageModel> list = new LinkedList<>(getAllLanguages());
-
-        List<LanguageModel> listLimit = Params.getLimitList(min, max, list);
-        if (!listLimit.isEmpty()) return listLimit;
+        if (!list.isEmpty()) return Params.getLimitList(min, max, list);
 
         return Collections.emptyList();
     }

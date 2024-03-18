@@ -1,85 +1,68 @@
 package fakeapi.languages.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import fakeapi.languages.global.Params;
 import fakeapi.languages.model.AuthorModel;
 import fakeapi.languages.repository.IAuthorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * @author Pancho1402
  */
+@Transactional
 @Service
-public class AuthorService implements IAuthorRepository {
+public class AuthorService {
+    private final IAuthorRepository repository;
 
-    @Override
-    public List<AuthorModel> getAllAuthors() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        File file = new File("author.json");
-
-        return Arrays.asList(objectMapper.readValue(file, AuthorModel[].class));
+    @Autowired
+    public AuthorService(IAuthorRepository repository) {
+        this.repository = repository;
+    }
+    public List<AuthorModel> getAllAuthor(){
+        return repository.findAll();
+    }
+    public AuthorModel getAuthorById(Integer id){
+        Optional<AuthorModel> author = repository.findById(id);
+        return author.orElse(null);
+    }
+    public AuthorModel getAuthorByName(String name){
+        Optional<AuthorModel> author = repository.findByName(name);
+        return author.orElse(null);
+    }
+    public List<AuthorModel> postAuthors(List<AuthorModel> authors){
+        repository.saveAll(authors);
+        return getAllAuthor();
     }
 
-    @Override
-    public AuthorModel getAuthorById(Integer id) throws IOException {
-        final List<AuthorModel> list = getAllAuthors();
-
-        return Params.filter(list,
-                element -> element.getId().equals(id));
+    public List<AuthorModel> postAuthor(AuthorModel author){
+        repository.save(author);
+        return getAllAuthor();
     }
+    public List<AuthorModel> putAuthor(int id, AuthorModel putAuthor){
+        AuthorModel author =  getAuthorById(id);
+        if (Objects.nonNull(author)) {
+            author.setName(putAuthor.getName());
+            repository.save(author);
 
-    @Override
-    public AuthorModel getAuthorByName(String name) throws IOException {
-        final List<AuthorModel> list = getAllAuthors();
-
-        return Params.filter(list,
-                element -> element.getName().equals(name));
+            return getAllAuthor();
+        }
+        return Collections.emptyList();
     }
-
-    @Override
-    public List<AuthorModel> postAuthors(List<AuthorModel> authors) throws IOException {
-        List<AuthorModel> list = new ArrayList<>(getAllAuthors());
-        list.addAll(authors);
-        return list;
+    public List<AuthorModel> deleteAuthor(int id){
+        repository.deleteById(id);
+        return getAllAuthor();
     }
+    public List<AuthorModel> getAuthorByParams(Integer min, Integer max) {
+        final List<AuthorModel> list = getAllAuthor();
 
-    @Override
-    public List<AuthorModel> postAuthor(AuthorModel author) throws IOException {
-        List<AuthorModel> list = new ArrayList<>(getAllAuthors());
-        list.add(author);
-        return list;
-    }
-
-    @Override
-    public List<AuthorModel> putAuthor(Integer id, AuthorModel author) throws IOException {
-        List<AuthorModel> list = new LinkedList<>(getAllAuthors());
-        list.stream()
-                .filter(element -> element.getId().equals(id))
-                .forEach(element -> element.setName(author.getName()));
-
-        return list;
-    }
-
-    @Override
-    public List<AuthorModel> deleteAuthors(Integer id) throws IOException {
-        List<AuthorModel> list = new LinkedList<>(getAllAuthors());
-        list.removeIf(element -> element.getId().equals(id));
-
-        return list;
-    }
-
-    @Override
-    public List<AuthorModel> getAuthorByParams(Integer min, Integer max) throws IOException {
-        final List<AuthorModel> list = new LinkedList<>(getAllAuthors());
-        final List<AuthorModel> listLimit = Params.getLimitList(min, max, list);
-
-        if (!listLimit.isEmpty()) return listLimit;
+        if (!list.isEmpty()) return Params.getLimitList(min, max, list);
 
         return Collections.emptyList();
     }
-
 }

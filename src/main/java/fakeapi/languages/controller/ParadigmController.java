@@ -1,7 +1,8 @@
 package fakeapi.languages.controller;
 
+import fakeapi.languages.global.ResponseEntityBuilder;
 import fakeapi.languages.model.ParadigmModel;
-import fakeapi.languages.repository.IParadigmRepository;
+import fakeapi.languages.service.ParadigmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,19 +15,19 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/api/v1/paradimg_programming")
+@RequestMapping("/api/v1/programming_paradigm")
 public class ParadigmController {
-    private final IParadigmRepository dao;
+    private final ParadigmService service;
 
     @Autowired
-    public ParadigmController(IParadigmRepository dao) {
-        this.dao = dao;
+    public ParadigmController(ParadigmService service) {
+        this.service = service;
     }
     @GetMapping()
     public ResponseEntity<List<ParadigmModel>> getAllParadigms(){
         try {
-            List<ParadigmModel> list = dao.getAllParadigm();
-            return list.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(list);
+            List<ParadigmModel> list = service.getAllParadigm();
+            return ResponseEntityBuilder.buildList(list);
         }catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -36,8 +37,8 @@ public class ParadigmController {
     @GetMapping("/id/{id}")
     public ResponseEntity<ParadigmModel> getParadigmById(@PathVariable(value = "id") Integer id) {
         try {
-            ParadigmModel paradigm = dao.getParadigmById(id);
-            return paradigm == null ? ResponseEntity.noContent().build() : ResponseEntity.ok(paradigm);
+            ParadigmModel paradigm = service.getParadigmById(id);
+            return ResponseEntityBuilder.build(paradigm);
         }catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -46,8 +47,8 @@ public class ParadigmController {
     @GetMapping("/type/{type}")
     public ResponseEntity<ParadigmModel> getParadigmByType(@PathVariable(value="type") String type) {
         try {
-            ParadigmModel paradigm = dao.getParadigmByType(type);
-            return paradigm == null ? ResponseEntity.noContent().build() : ResponseEntity.ok(paradigm);
+            ParadigmModel paradigm = service.getParadigmByType(type);
+            return ResponseEntityBuilder.build(paradigm);
         }catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -58,8 +59,8 @@ public class ParadigmController {
             @RequestParam(required = false, defaultValue = "1") Integer min,
             @RequestParam(required = false) Integer max){
         try {
-            List<ParadigmModel> list = dao.getParadigmByParams(min, max);
-            return list.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(list);
+            List<ParadigmModel> list = service.getParadigmByParams(min, max);
+            return ResponseEntityBuilder.buildList(list);
         }catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

@@ -1,13 +1,15 @@
 package fakeapi.languages.controller;
 
+import fakeapi.languages.global.ResponseEntityBuilder;
 import fakeapi.languages.model.AuthorModel;
-import fakeapi.languages.repository.IAuthorRepository;
+import fakeapi.languages.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 /**
  * @author Pancho1402
@@ -17,27 +19,31 @@ import java.util.List;
 @RequestMapping("/api/v1/authors")
 public class AuthorController {
 
-    private final  IAuthorRepository dao;
+    private final AuthorService service;
+
     @Autowired
-    public AuthorController(IAuthorRepository dao) {
-        this.dao = dao;
+    public AuthorController(AuthorService service) {
+        this.service = service;
     }
 
     @GetMapping()
     public ResponseEntity<List<AuthorModel>> getAllAuthor(){
         try {
-            List<AuthorModel> list = dao.getAllAuthors();
-            return list.isEmpty()? ResponseEntity.noContent().build() : ResponseEntity.ok(list);
+            List<AuthorModel> list = service.getAllAuthor();
+            return ResponseEntityBuilder.buildList(list);
+
         }catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+
     @GetMapping("/id/{id}")
     public ResponseEntity<AuthorModel> getAuthorById(@PathVariable(value = "id") Integer id) {
         try {
-            AuthorModel author = dao.getAuthorById(id);
-            return author == null ? ResponseEntity.noContent().build() : ResponseEntity.ok(author);
+            AuthorModel author =  service.getAuthorById(id);
+            return ResponseEntityBuilder.build(author);
+
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -46,8 +52,9 @@ public class AuthorController {
     @GetMapping("/name/{name}")
     public ResponseEntity<AuthorModel> getAuthorByName(@PathVariable(value = "name") String name) {
         try {
-            AuthorModel author = dao.getAuthorByName(name);
-            return author == null ? ResponseEntity.noContent().build() : ResponseEntity.ok(author);
+            AuthorModel author = service.getAuthorByName(name);
+            return ResponseEntityBuilder.build(author);
+
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -56,8 +63,9 @@ public class AuthorController {
     @PostMapping("/post-list")
     public ResponseEntity<List<AuthorModel>> postAuthors(@RequestBody List<AuthorModel> authors) {
         try {
-            List<AuthorModel> list = dao.postAuthors(authors);
-            return list.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(list);
+            List<AuthorModel> list = service.postAuthors(authors);
+            return ResponseEntityBuilder.buildList(list);
+
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -68,8 +76,9 @@ public class AuthorController {
     @PostMapping()
     public ResponseEntity<List<AuthorModel>> postAuthor(@RequestBody AuthorModel author) {
         try {
-            List<AuthorModel> list = dao.postAuthor(author);
-            return list.isEmpty()? ResponseEntity.noContent().build() : ResponseEntity.ok(list);
+            List<AuthorModel> list = service.postAuthor(author);
+            return ResponseEntityBuilder.buildList(list);
+
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -79,8 +88,9 @@ public class AuthorController {
     public ResponseEntity<List<AuthorModel>> putAuthor(@PathVariable(value = "id") Integer id,
                                                        @RequestBody AuthorModel author) {
         try {
-            List<AuthorModel> list = dao.putAuthor(id, author);
-            return list.isEmpty()? ResponseEntity.noContent().build() : ResponseEntity.ok(list);
+            List<AuthorModel> list = service.putAuthor(id, author);
+            return ResponseEntityBuilder.buildList(list);
+
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -89,8 +99,9 @@ public class AuthorController {
     @DeleteMapping("/{id}")
     public ResponseEntity<List<AuthorModel>> deleteAuthor(@PathVariable(value = "id") Integer id) {
         try {
-            List<AuthorModel> list = dao.deleteAuthors(id);
-            return list.isEmpty()? ResponseEntity.noContent().build() : ResponseEntity.ok(list);
+            List<AuthorModel> list = service.deleteAuthor(id);
+            return ResponseEntityBuilder.buildList(list);
+
         }catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -101,8 +112,9 @@ public class AuthorController {
             @RequestParam(required = false, defaultValue = "1") Integer min,
             @RequestParam(required = false, defaultValue = "1") Integer max) {
         try {
-            List<AuthorModel> list = dao.getAuthorByParams(min, max);
-            return list.isEmpty()? ResponseEntity.noContent().build() : ResponseEntity.ok(list);
+            List<AuthorModel> list = service.getAuthorByParams(min, max);
+            return ResponseEntityBuilder.buildList(list);
+
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

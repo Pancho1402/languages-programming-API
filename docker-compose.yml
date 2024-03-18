@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  bd_language:
+    image: postgres:16.2
+    container_name: bd_language
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: bd_language
+    volumes:
+        - ./data/persistence_db:/var/lib/postgresql/data
+volumes:
+  persistence_db:
+  copy_sql:
+
+#myproject/
+#├── docker-compose.yml
+#└── sql/
+#    └── tu_script.sql
+
+#    volumes:
+#      - ./sql:/docker-entrypoint-initdb.d
