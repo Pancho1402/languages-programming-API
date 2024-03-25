@@ -13,14 +13,7 @@ services:
       POSTGRES_DB: bd_language
     volumes:
         - ./data/persistence_db:/var/lib/postgresql/data
+        - ./copy_sql:/docker-entrypoint-initdb.d
 volumes:
   persistence_db:
   copy_sql:
-
-#myproject/
-#├── docker-compose.yml
-#└── sql/
-#    └── tu_script.sql
-
-#    volumes:
-#      - ./sql:/docker-entrypoint-initdb.d
