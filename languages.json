@@ -1,111 +1,1023 @@
-{
-  "id": 1,
-  "name": "Go",
-  "description": "Go is a statically typed, compiled, concurrent programming language inspired by C syntax, but with memory safety and garbage collection. It was developed by Google and its initial designers were Robert Griesemer, Rob Pike, and Ken Thompson.",
-  "year": "2009",
-  "authors": [
-    {
-      "name": "Robert Griesemer",
-      "nationality": "German"
-    },
-    {
-      "name": "Rob Pike",
-      "nationality": "American"
-    },
-    {
-      "name": "Ken Thompson",
-      "nationality": "American"
-    }
-  ],
-  "maintainer": "Google LLC",
-  "versionLTS": "1.22.5",
-  "license": [
-    "BSD-style"
-  ],
-  "openSource": true,
-  "github": "https://github.com/golang",
-  "documentation": [
-    {
+[
+  {
+    "id": 1,
+    "name": "Go",
+    "description": "Go is a statically typed, compiled, concurrent programming language inspired by C syntax, but with memory safety and garbage collection. It was developed by Google and its initial designers were Robert Griesemer, Rob Pike, and Ken Thompson.",
+    "year": 2009,
+    "authors": [
+      {
+        "name": "Robert Griesemer",
+        "nationality": "German"
+      },
+      {
+        "name": "Rob Pike",
+        "nationality": "American"
+      },
+      {
+        "name": "Ken Thompson",
+        "nationality": "American"
+      }
+    ],
+    "maintainer": "Google LLC",
+    "version": "1.22.5",
+    "license": [
+      "BSD-style"
+    ],
+    "openSource": true,
+    "github": "https://github.com/golang/go/",
+    "documentation": [
+      {
+        "type": "Official",
+        "url": "https://go.dev/"
+      }
+    ],
+    "level": "High level",
+    "paradigms": [
+      "Imperative Programming",
+      "Declarative Programming",
+      "Declarative Programming / Logic Programming",
+      "Declarative Programming / Functional Programming",
+      "Object Oriented Programming (OOP)",
+      "Event Oriented Programming",
+      "Procedural Programming",
+      "Structured Programming",
+      "Generic Programming",
+      "Modular Programming",
+      "Reactive Programming",
+      "Rule-Based Programming"
+    ],
+    "frameworks": [
+      {
+        "name": "Gin",
+        "description": "A fast, minimalistic HTTP web framework for Go that offers great performance and a simple API for building web services and microservices."
+      },
+      {
+        "name": "Echo",
+        "description": "A high-performance, extensible web framework for Go that makes it easy to build robust and scalable web applications."
+      },
+      {
+        "name": "Beego",
+        "description": "A full-featured and high-performance framework for Go, inspired by Django and Python, which includes features like ORM, auto-compilation, and configuration API."
+      },
+      {
+        "name": "Revel",
+        "description": "A high-level web framework for Go that promotes rapid development with a clean project structure and a focus on developer productivity."
+      },
+      {
+        "name": "Fiber",
+        "description": "Inspired by Express.js, Fiber is a very fast and lightweight web framework for Go, designed to ease the development of web applications."
+      },
+      {
+        "name": "Mux",
+        "description": "An HTTP router for Go that offers pattern-based routing and middleware, ideal for creating RESTful APIs."
+      },
+      {
+        "name": "Buffalo",
+        "description": "A complete ecosystem for building web applications in Go, which includes generators, front-end support, and development tools."
+      },
+      {
+        "name": "Chi",
+        "description": "A lightweight and fast HTTP router for Go that enables creating RESTful APIs and handling middleware efficiently."
+      },
+      {
+        "name": "Iris",
+        "description": "A fast, efficient web framework for Go with many features, including support for WebSockets and HTTP/2."
+      },
+      {
+        "name": "Martini",
+        "description": "A minimalistic web framework for Go that offers a simple and easy-to-use API, ideal for creating microservices and lightweight web applications."
+      }
+    ],
+    "usage": [
+      "Web Development",
+      "Cloud Services",
+      "Systems Programming"
+    ],
+    "platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "ides": [
+      "Visual Studio Code",
+      "GoLand",
+      "LiteIDE",
+      "Vim",
+      "Sublime Text"
+    ]
+  },
+  {
+    "id":2,
+    "name": "Java",
+    "description": "Java is a high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible. It is a general-purpose programming language intended to let application developers write once, run anywhere (WORA), meaning that compiled Java code can run on all platforms that support Java without the need for recompilation.",
+    "year": 1995,
+    "authors": [
+      {
+        "name": "Sun Microsystems ",
+        "nationality": "Canadian"
+      },
+      {
+        "name": "James Gosling",
+        "nationality": "Canadian"
+      },
+      {
+        "name": "Mike Sheridan",
+        "nationality": "American"
+      },
+      {
+        "name": "Patrick Naughton",
+        "nationality": "American"
+      }
+    ],
+    "maintainer": "Oracle Corporation",
+    "version": "22",
+    "license": [
+      "GNU General Public License"
+    ],
+    "openSource": true,
+    "github": "https://github.com/openjdk/jdk/",
+    "documentation": [
+      {
+        "type": "for community",
+        "url": "https://dev.java/"
+      }
+    ],
+    "level": "High level",
+    "paradigms": [
+      "Object Oriented Programming (OOP)",
+      "Concurrent Programming",
+      "Functional Programming"
+    ],
+    "frameworks": [
+      {
+        "name": "Spring",
+        "description": "A comprehensive framework for enterprise applications, providing a wide range of functionalities from dependency injection to aspect-oriented programming."
+      },
+      {
+        "name": "Hibernate",
+        "description": "An object-relational mapping (ORM) framework for Java, facilitating the conversion of data between incompatible type systems using object-oriented programming languages."
+      },
+      {
+        "name": "Struts",
+        "description": "A framework for building web applications based on the Model-View-Controller (MVC) architecture."
+      },
+      {
+        "name": "JSF (JavaServer Faces)",
+        "description": "A framework for building user interfaces for web applications, providing a component-based approach to the design and implementation of UIs."
+      },
+      {
+        "name": "GWT (Google Web Toolkit)",
+        "description": "A development toolkit for building and optimizing complex browser-based applications."
+      },
+      {
+        "name": "Vaadin",
+        "description": "A framework for building modern web applications in Java, providing a rich set of UI components."
+      },
+      {
+        "name": "Play Framework",
+        "description": "A web application framework which follows the MVC pattern, emphasizing scalability and productivity."
+      },
+      {
+        "name": "Grails",
+        "description": "A framework that leverages the Groovy language and offers a high productivity environment by following the 'convention over configuration' principle."
+      },
+      {
+        "name": "Apache Wicket",
+        "description": "A component-based web application framework that focuses on simplifying the development of dynamic web applications."
+      },
+      {
+        "name": "Dropwizard",
+        "description": "A framework for developing RESTful web services, combining a set of stable, mature libraries in a simple and lightweight package."
+      }
+    ],
+    "usage": [
+      "Web Development",
+      "Enterprise Applications",
+      "Mobile Applications",
+      "Embedded Systems",
+      "Scientific Applications"
+    ],
+    "platforms": [
+      "Linux",
+      "Windows",
+      "macOS",
+      "Solaris"
+    ],
+    "ides": [
+      "IntelliJ IDEA",
+      "Eclipse",
+      "NetBeans",
+      "Visual Studio Code",
+      "JDeveloper"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "C#",
+    "description": "C# is a modern, object-oriented, and type-safe programming language developed by Microsoft. It is designed to be simple, modern, and versatile, suitable for a wide range of applications, including web, mobile, desktop, and cloud-based applications.",
+    "year": 2000,
+    "authors": [
+      {
+        "name": "Anders Hejlsberg",
+        "nationality": "Danish"
+      }
+    ],
+    "maintainer": "Microsoft",
+    "version": "12",
+    "license": [
+      "MIT License"
+    ],
+    "openSource": true,
+    "github": "https://github.com/dotnet/csharplang/",
+    "documentation": [{
       "type": "Official",
-      "url": "https://golang.org/doc/"
-    },
-    {
-      "type": "Tutorials",
-      "url": "https://tour.golang.org/"
-    }
-  ],
-  "level": "High level",
-  "paradigms": [
-    "Imperative Programming",
-    "Declarative Programming",
-    "Declarative Programming / Logic Programming",
-    "Declarative Programming / Functional Programming",
-    "Object Oriented Programming (OOP)",
-    "Event Oriented Programming",
-    "Procedural Programming",
-    "Structured Programming",
-    "Generic Programming",
-    "Modular Programming",
-    "Reactive Programming",
-    "Rule-Based Programming"
-  ],
-  "frameworks": [
-    {
-      "name": "Gin",
-      "description": "A fast, minimalistic HTTP web framework for Go that offers great performance and a simple API for building web services and microservices."
-    },
-    {
-      "name": "Echo",
-      "description": "A high-performance, extensible web framework for Go that makes it easy to build robust and scalable web applications."
-    },
-    {
-      "name": "Beego",
-      "description": "A full-featured and high-performance framework for Go, inspired by Django and Python, which includes features like ORM, auto-compilation, and configuration API."
-    },
-    {
-      "name": "Revel",
-      "description": "A high-level web framework for Go that promotes rapid development with a clean project structure and a focus on developer productivity."
-    },
-    {
-      "name": "Fiber",
-      "description": "Inspired by Express.js, Fiber is a very fast and lightweight web framework for Go, designed to ease the development of web applications."
-    },
-    {
-      "name": "Mux",
-      "description": "An HTTP router for Go that offers pattern-based routing and middleware, ideal for creating RESTful APIs."
-    },
-    {
-      "name": "Buffalo",
-      "description": "A complete ecosystem for building web applications in Go, which includes generators, front-end support, and development tools."
-    },
-    {
-      "name": "Chi",
-      "description": "A lightweight and fast HTTP router for Go that enables creating RESTful APIs and handling middleware efficiently."
-    },
-    {
-      "name": "Iris",
-      "description": "A fast, efficient web framework for Go with many features, including support for WebSockets and HTTP/2."
-    },
-    {
-      "name": "Martini",
-      "description": "A minimalistic web framework for Go that offers a simple and easy-to-use API, ideal for creating microservices and lightweight web applications."
-    }
-  ],
-  "usage": [
-    "Web Development",
-    "Cloud Services",
-    "Systems Programming"
-  ],
-  "platforms": [
-    "Linux",
-    "Windows",
-    "macOS"
-  ],
-  "ides": [
-    "Visual Studio Code",
-    "GoLand",
-    "LiteIDE",
-    "Vim",
-    "Sublime Text"
-  ]
-}
+      "url": "https://docs.microsoft.com/en-us/dotnet/csharp/"
+    }],
+    "level": "High level",
+    "paradigms": [
+      "Object Oriented Programming (OOP)",
+      "Functional Programming",
+      "Component-Oriented Programming"
+    ],
+    "frameworks": [
+      {
+        "name": ".NET",
+        "description": "A comprehensive development platform for building applications across web, mobile, desktop, and cloud environments."
+      },
+      {
+        "name": "ASP.NET",
+        "description": "A framework for building web applications and services with .NET and C#."
+      },
+      {
+        "name": "Xamarin",
+        "description": "A framework for building cross-platform mobile applications using C# and .NET."
+      },
+      {
+        "name": "Entity Framework",
+        "description": "An object-relational mapper (ORM) that enables .NET developers to work with a database using .NET objects."
+      },
+      {
+        "name": "Blazor",
+        "description": "A framework for building interactive web UIs using C# instead of JavaScript."
+      },
+      {
+        "name": "Unity",
+        "description": "A cross-platform game engine used for developing 2D and 3D video games and simulations."
+      },
+      {
+        "name": "MAUI (Multi-platform App UI)",
+        "description": "A framework for creating native cross-platform applications with a single codebase."
+      },
+      {
+        "name": "NancyFX",
+        "description": "A lightweight, low-ceremony framework for building HTTP-based services on .NET and Mono."
+      },
+      {
+        "name": "MonoGame",
+        "description": "A framework used for creating cross-platform games with .NET."
+      },
+      {
+        "name": "Avalonia",
+        "description": "A cross-platform UI framework for .NET, providing a modern, flexible, and high-performance UI toolkit."
+      }
+    ],
+    "usage": [
+      "Web Development",
+      "Mobile Development",
+      "Desktop Applications",
+      "Cloud Services",
+      "Game Development"
+    ],
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "ides": [
+      "Visual Studio",
+      "Visual Studio Code",
+      "Rider",
+      "MonoDevelop"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "TypeScript",
+    "description": "TypeScript is a strict syntactical superset of JavaScript that adds optional static typing to the language. Developed by Microsoft, TypeScript is designed for the development of large applications and transcompiles to JavaScript.",
+    "year": 2012,
+    "authors": [
+      {
+        "name": "Anders Hejlsberg",
+        "nationality": "Danish"
+      }
+    ],
+    "maintainer": "Microsoft",
+    "version": "5.5",
+    "license": [
+      "Apache License 2.0"
+    ],
+    "openSource": true,
+    "github": "https://github.com/microsoft/TypeScript/",
+    "documentation": [{
+      "type": "Official",
+      "url": "https://www.typescriptlang.org/"
+    }],
+    "level": "High level",
+    "paradigms": [
+      "Object Oriented Programming (OOP)",
+      "Functional Programming",
+      "Generic Programming"
+    ],
+    "frameworks": [
+      {
+        "name": "Angular",
+        "description": "A platform and framework for building single-page client applications using HTML and TypeScript."
+      },
+      {
+        "name": "NestJS",
+        "description": "A progressive Node.js framework for building efficient, reliable, and scalable server-side applications."
+      },
+      {
+        "name": "Vue.js",
+        "description": "A progressive framework for building user interfaces, integrating TypeScript support in Vue 3."
+      },
+      {
+        "name": "React",
+        "description": "A JavaScript library for building user interfaces, with strong TypeScript support for type-checking and component props."
+      },
+      {
+        "name": "Next.js",
+        "description": "A React framework that enables functionality such as server-side rendering and generating static websites, with TypeScript support."
+      },
+      {
+        "name": "Nuxt.js",
+        "description": "A framework for creating Vue.js applications with support for server-side rendering, static site generation, and TypeScript integration."
+      },
+      {
+        "name": "Gatsby",
+        "description": "A React-based framework for building static websites and applications, offering TypeScript support out of the box."
+      },
+      {
+        "name": "Svelte",
+        "description": "A component framework that compiles code to highly efficient vanilla JavaScript, with TypeScript support."
+      },
+      {
+        "name": "Ember.js",
+        "description": "An opinionated framework for building ambitious web applications, with good support for TypeScript."
+      },
+      {
+        "name": "Electron",
+        "description": "A framework for building cross-platform desktop applications using web technologies, with support for TypeScript."
+      }
+    ],
+    "usage": [
+      "Web Development",
+      "Server-side Development",
+      "Desktop Applications",
+      "Mobile Development"
+    ],
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "ides": [
+      "Visual Studio Code",
+      "WebStorm",
+      "Atom",
+      "Sublime Text",
+      "Eclipse"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Python",
+    "description": "Python is a high-level, interpreted programming language with dynamic semantics and a focus on code readability. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Python is known for its simplicity and versatility, making it popular for web development, scientific computing, data analysis, artificial intelligence, and more.",
+    "year": 1991,
+    "authors": [
+      {
+        "name": "Guido van Rossum",
+        "nationality": "Dutch"
+      }
+    ],
+    "maintainer": "Python Software Foundation",
+    "version": "3.11",
+    "license": [
+      "Python Software Foundation License"
+    ],
+    "openSource": true,
+    "github": "https://github.com/python/cpython",
+    "documentation": [{
+      "type": "Official",
+      "url": "https://www.python.org/"
+    }],
+    "level": "High level",
+    "paradigms": [
+      "Object Oriented Programming (OOP)",
+      "Procedural Programming",
+      "Functional Programming"
+    ],
+    "frameworks": [
+      {
+        "name": "Django",
+        "description": "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
+      },
+      {
+        "name": "Flask",
+        "description": "A lightweight WSGI web application framework that is easy to get started with and scales up to complex applications."
+      },
+      {
+        "name": "Pyramid",
+        "description": "A small, fast, down-to-earth Python web framework that makes real-world web application development and deployment more fun."
+      },
+      {
+        "name": "FastAPI",
+        "description": "A modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints."
+      },
+      {
+        "name": "Tornado",
+        "description": "A Python web framework and asynchronous networking library, originally developed at FriendFeed."
+      },
+      {
+        "name": "Bottle",
+        "description": "A fast, simple and lightweight WSGI micro web-framework for Python."
+      },
+      {
+        "name": "CherryPy",
+        "description": "A minimalist Python web framework, allowing you to build web applications in much the same way you would build any other object-oriented program."
+      },
+      {
+        "name": "Web2py",
+        "description": "A full-stack web framework for rapid development of fast, scalable, secure, and portable database-driven web-based applications."
+      },
+      {
+        "name": "Hug",
+        "description": "A Python 3 framework that allows you to develop APIs quickly and with less code."
+      },
+      {
+        "name": "Dash",
+        "description": "A framework for building analytical web applications. No JavaScript required."
+      }
+    ],
+    "usage": [
+      "Web Development",
+      "Data Analysis",
+      "Artificial Intelligence",
+      "Scientific Computing",
+      "Automation"
+    ],
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "ides": [
+      "PyCharm",
+      "Visual Studio Code",
+      "Spyder",
+      "Jupyter",
+      "Sublime Text"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "SQL",
+    "description": "SQL (Structured Query Language) is a domain-specific language used in programming and designed for managing data held in a relational database management system (RDBMS) or for stream processing in a relational data stream management system (RDSMS). SQL is particularly useful for handling structured data, i.e., data incorporating relations among entities and variables.",
+    "year": 1974,
+    "authors": [
+      {
+        "name": "Donald D. Chamberlin",
+        "nationality": "American"
+      },
+      {
+        "name": "Raymond F. Boyce",
+        "nationality": "American"
+      }
+    ],
+    "maintainer": "ISO/IEC",
+    "version": "ISO/IEC 2023",
+    "license": [
+      "Public Domain"
+    ],
+    "openSource": false,
+    "github": null,
+    "documentation": [{
+      "type": "Standards",
+      "url": "https://www.iso.org/"
+    }],
+    "level": "High level",
+    "paradigms": [
+      "Declarative Programming"
+    ],
+    "frameworks": [
+      {
+        "name": "MySQL",
+        "description": "An open-source relational database management system based on SQL."
+      },
+      {
+        "name": "PostgreSQL",
+        "description": "An open-source object-relational database system that uses and extends the SQL language."
+      },
+      {
+        "name": "SQLite",
+        "description": "A C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine."
+      },
+      {
+        "name": "Microsoft SQL Server",
+        "description": "A relational database management system developed by Microsoft."
+      },
+      {
+        "name": "Oracle Database",
+        "description": "A multi-model database management system produced and marketed by Oracle Corporation."
+      },
+      {
+        "name": "MariaDB",
+        "description": "A community-developed, commercially supported fork of the MySQL relational database management system."
+      },
+      {
+        "name": "IBM Db2",
+        "description": "A family of data management products, including database servers, developed by IBM."
+      },
+      {
+        "name": "Amazon Aurora",
+        "description": "A MySQL and PostgreSQL-compatible relational database built for the cloud, combining the performance and availability of high-end commercial databases with the simplicity and cost-effectiveness of open-source databases."
+      },
+      {
+        "name": "CockroachDB",
+        "description": "A distributed SQL database built on a transactional and strongly-consistent key-value store."
+      },
+      {
+        "name": "Firebird",
+        "description": "An open-source SQL relational database management system that runs on Linux, Microsoft Windows, macOS, and several Unix platforms."
+      }
+    ],
+    "usage": [
+      "Database Management",
+      "Data Analysis",
+      "Data Warehousing",
+      "Business Intelligence",
+      "Big Data"
+    ],
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Unix"
+    ],
+    "ides": [
+      "MySQL Workbench",
+      "pgAdmin",
+      "SQL Server Management Studio (SSMS)",
+      "DataGrip",
+      "Toad for Oracle"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "PHP",
+    "description": "PHP (Hypertext Preprocessor) is a popular general-purpose scripting language especially suited to web development. Fast, flexible, and pragmatic, PHP powers everything from your blog to the most popular websites in the world.",
+    "year": 1995,
+    "authors": [
+      {
+        "name": "Rasmus Lerdorf",
+        "nationality": "Greenlandic-Danish"
+      }
+    ],
+    "maintainer": "The PHP Group",
+    "version": "8.3.9",
+    "license": [
+      "PHP License"
+    ],
+    "openSource": true,
+    "github": "https://github.com/php/php-src",
+    "documentation": [{
+      "type": "Official",
+      "url": "https://www.php.net/"
+    }],
+    "level": "High level",
+    "paradigms": [
+      "Object Oriented Programming (OOP)",
+      "Procedural Programming",
+      "Functional Programming"
+    ],
+    "frameworks": [
+      {
+        "name": "Laravel",
+        "description": "A web application framework with expressive, elegant syntax, aiming to take the pain out of development by easing common tasks."
+      },
+      {
+        "name": "Symfony",
+        "description": "A set of reusable PHP components and a PHP framework for web projects."
+      },
+      {
+        "name": "CodeIgniter",
+        "description": "A powerful PHP framework with a very small footprint, designed for developers who need a simple and elegant toolkit to create full-featured web applications."
+      },
+      {
+        "name": "Zend Framework",
+        "description": "An open-source, object-oriented web application framework implemented in PHP 7."
+      },
+      {
+        "name": "Yii",
+        "description": "A high-performance PHP framework best for developing web applications."
+      },
+      {
+        "name": "Phalcon",
+        "description": "A full-stack PHP framework delivered as a C-extension, optimized for high performance."
+      },
+      {
+        "name": "CakePHP",
+        "description": "A rapid development framework for PHP that provides an extensible architecture for developing, maintaining, and deploying applications."
+      },
+      {
+        "name": "Slim",
+        "description": "A PHP micro-framework that helps you quickly write simple yet powerful web applications and APIs."
+      },
+      {
+        "name": "Lumen",
+        "description": "A micro-framework by Laravel, ideal for creating fast microservices and APIs."
+      },
+      {
+        "name": "FuelPHP",
+        "description": "A simple, flexible, community-driven PHP 5.4+ framework, born from the best ideas of other frameworks."
+      }
+    ],
+    "usage": [
+      "Web Development",
+      "Server-side Scripting",
+      "Command Line Scripting"
+    ],
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "ides": [
+      "PHPStorm",
+      "NetBeans",
+      "Visual Studio Code",
+      "Eclipse PDT",
+      "Aptana Studio"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "JavaScript",
+    "description": "JavaScript is a versatile, high-level, interpreted programming language that is a core technology of the web, enabling interactive web pages. It is a key component of web applications, alongside HTML and CSS, and supports event-driven, functional, and imperative programming styles.",
+    "year": 1995,
+    "authors": [
+      {
+        "name": "Brendan Eich",
+        "nationality": "American"
+      }
+    ],
+    "maintainer": "Ecma International",
+    "version": "ECMA-424",
+    "license": [
+      "ECMAScript License"
+    ],
+    "openSource": false,
+    "github": null,
+    "documentation": [{
+      "type": "Standards",
+      "url": "https://www.ecma-international.org/publications-and-standards/standards/"
+    }],
+    "level": "High level",
+    "paradigms": [
+      "Event-Driven Programming",
+      "Functional Programming",
+      "Object-Oriented Programming"
+    ],
+    "frameworks": [
+      {
+        "name": "React",
+        "description": "A JavaScript library for building user interfaces, maintained by Facebook."
+      },
+      {
+        "name": "Angular",
+        "description": "A platform and framework for building single-page client applications using HTML and JavaScript."
+      },
+      {
+        "name": "Vue.js",
+        "description": "A progressive framework for building user interfaces, designed to be incrementally adoptable."
+      },
+      {
+        "name": "Node.js",
+        "description": "A JavaScript runtime built on Chrome's V8 JavaScript engine, used for building server-side applications."
+      },
+      {
+        "name": "Express.js",
+        "description": "A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications."
+      },
+      {
+        "name": "Next.js",
+        "description": "A React framework that enables server-side rendering and static site generation for React applications."
+      },
+      {
+        "name": "Meteor",
+        "description": "A full-stack platform for building web and mobile applications in pure JavaScript."
+      },
+      {
+        "name": "Svelte",
+        "description": "A framework that compiles JavaScript components into highly efficient imperative code."
+      },
+      {
+        "name": "Backbone.js",
+        "description": "A JavaScript library that provides the minimal structure needed for web applications by providing models with key-value binding and custom events."
+      },
+      {
+        "name": "Ember.js",
+        "description": "An opinionated framework for building ambitious web applications with a focus on convention over configuration."
+      }
+    ],
+    "usage": [
+      "Web Development",
+      "Server-Side Development",
+      "Mobile App Development",
+      "Desktop App Development"
+    ],
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "ides": [
+      "Visual Studio Code",
+      "WebStorm",
+      "Sublime Text",
+      "Atom",
+      "Brackets"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Rust",
+    "description": "Rust is a systems programming language focused on safety, speed, and concurrency. It achieves memory safety without using a garbage collector, leveraging a unique ownership model. Rust is known for its performance and its ability to prevent common programming errors, making it a popular choice for system-level programming and high-performance applications.",
+    "year": 2010,
+    "authors": [
+      {
+        "name": "Graydon Hoare",
+        "nationality": "Canadian"
+      }
+    ],
+    "maintainer": "The Rust Project",
+    "version": "1.80.0",
+    "license": [
+      "MIT License",
+      "Apache License 2.0"
+    ],
+    "openSource": true,
+    "github": "https://github.com/rust-lang/rust",
+    "documentation": [{
+      "type": "Official",
+      "url": "https://www.rust-lang.org/"
+    }],
+    "level": "Systems programming",
+    "paradigms": [
+      "Procedural Programming",
+      "Functional Programming",
+      "Object-Oriented Programming"
+    ],
+    "frameworks": [
+      {
+        "name": "Actix",
+        "description": "A powerful, pragmatic, and extremely fast web framework for Rust."
+      },
+      {
+        "name": "Rocket",
+        "description": "A web framework for Rust that makes it simple to write fast and secure web applications."
+      },
+      {
+        "name": "Warp",
+        "description": "A super-easy, composable, and fast web framework for building APIs with Rust."
+      },
+      {
+        "name": "Tide",
+        "description": "A minimal and pragmatic Rust web application framework built for rapid development."
+      },
+      {
+        "name": "Gotham",
+        "description": "A flexible web framework that promotes stability, safety, and security for Rust applications."
+      },
+      {
+        "name": "Yew",
+        "description": "A modern Rust framework for creating multi-threaded front-end web apps with WebAssembly."
+      },
+      {
+        "name": "Tera",
+        "description": "A template engine for Rust inspired by Jinja2 and Django templates."
+      },
+      {
+        "name": "SeaORM",
+        "description": "An asynchronous and dynamic ORM for Rust, focused on providing a simple API for database interactions."
+      },
+      {
+        "name": "Diesel",
+        "description": "A safe, extensible ORM and Query Builder for Rust, designed to work with PostgreSQL, MySQL, and SQLite."
+      },
+      {
+        "name": "Sqlx",
+        "description": "An async, pure Rust SQL crate featuring compile-time checked queries and runtime performance."
+      }
+    ],
+    "usage": [
+      "Systems Programming",
+      "Web Development",
+      "Embedded Systems",
+      "Concurrency"
+    ],
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "ides": [
+      "Visual Studio Code",
+      "IntelliJ IDEA",
+      "CLion",
+      "Atom",
+      "Sublime Text"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "C",
+    "description": "C is a general-purpose, procedural programming language that provides low-level access to memory and is known for its efficiency and performance. Developed in the early 1970s, C has had a significant impact on many modern programming languages and remains widely used in system and application programming.",
+    "year": 1972,
+    "authors": [
+      {
+        "name": "Dennis Ritchie",
+        "nationality": "American"
+      }
+    ],
+    "maintainer": "The Open Group",
+    "version": "ISO/CIE 2019",
+    "license": [
+      "ISO/IEC Standard"
+    ],
+    "openSource": false,
+    "github": null,
+    "documentation": [{
+      "type": "Standards",
+      "url": "https://www.iso.org/"
+    }],
+    "level": "Low level",
+    "paradigms": [
+      "Procedural Programming",
+      "Imperative Programming"
+    ],
+    "frameworks": [
+      {
+        "name": "GLFW",
+        "description": "A library for creating windows with OpenGL contexts and managing input."
+      },
+      {
+        "name": "GTK",
+        "description": "A multi-platform toolkit for creating graphical user interfaces."
+      },
+      {
+        "name": "Qt",
+        "description": "A free and open-source widget toolkit for creating graphical user interfaces."
+      },
+      {
+        "name": "CUnit",
+        "description": "A lightweight system for writing, administering, and running unit tests in C."
+      },
+      {
+        "name": "libcurl",
+        "description": "A library for transferring data with URLs."
+      },
+      {
+        "name": "ncurses",
+        "description": "A library that provides functions to write text-based user interfaces."
+      },
+      {
+        "name": "OpenGL",
+        "description": "A cross-language, cross-platform API for rendering 2D and 3D vector graphics."
+      },
+      {
+        "name": "SDL",
+        "description": "A library used to handle graphics, sound, and input for multimedia applications."
+      },
+      {
+        "name": "Boost C++ Libraries",
+        "description": "A set of libraries for C++ that extends the standard library with additional functionality."
+      },
+      {
+        "name": "ACE (Adaptive Communicative Environment)",
+        "description": "A framework for developing portable, high-performance, and real-time distributed applications."
+      }
+    ],
+    "usage": [
+      "System Programming",
+      "Embedded Systems",
+      "Operating Systems",
+      "Compilers",
+      "Game Development"
+    ],
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Unix"
+    ],
+    "ides": [
+      "Visual Studio",
+      "GCC",
+      "Clang",
+      "Code::Blocks",
+      "Dev-C++"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Kotlin",
+    "description": "Kotlin is a statically-typed programming language developed by JetBrains. It is designed to be fully interoperable with Java and to improve upon the limitations of Java, with a focus on conciseness, safety, and tooling support. Kotlin is used for Android development, server-side applications, and more.",
+    "year": 2011,
+    "authors": [
+      {
+        "name": "JetBrains",
+        "nationality": "Russian"
+      }
+    ],
+    "maintainer": "JetBrains",
+    "version": "1.9.25",
+    "license": [
+      "Apache License 2.0"
+    ],
+    "openSource": true,
+    "github": "https://github.com/JetBrains/kotlin/",
+    "documentation": [{
+      "type": "Official",
+      "url": "https://kotlinlang.org/"
+    }],
+    "level": "High level",
+    "paradigms": [
+      "Object Oriented Programming (OOP)",
+      "Functional Programming",
+      "Imperative Programming"
+    ],
+    "frameworks": [
+      {
+        "name": "Ktor",
+        "description": "A Kotlin framework for building asynchronous servers and clients in connected systems."
+      },
+      {
+        "name": "Spring Boot",
+        "description": "A popular Java framework that is fully compatible with Kotlin, allowing for concise and expressive application development."
+      },
+      {
+        "name": "Exposed",
+        "description": "A SQL framework for Kotlin, allowing for type-safe database access and object-relational mapping."
+      },
+      {
+        "name": "Anko",
+        "description": "A Kotlin library that simplifies Android development with less boilerplate code."
+      },
+      {
+        "name": "Arrow",
+        "description": "A library for functional programming in Kotlin, providing abstractions like monads, functors, and more."
+      },
+      {
+        "name": "Kodein",
+        "description": "A dependency injection library for Kotlin, providing a flexible and powerful DI solution."
+      },
+      {
+        "name": "TornadoFX",
+        "description": "A lightweight JavaFX framework for Kotlin, making it easy to create desktop applications with a modern UI."
+      },
+      {
+        "name": "KorGE",
+        "description": "A game engine for Kotlin, designed for building multiplatform games."
+      },
+      {
+        "name": "Moxy",
+        "description": "A popular library for Android that helps in implementing MVP (Model-View-Presenter) architecture with Kotlin."
+      },
+      {
+        "name": "Koin",
+        "description": "A lightweight dependency injection framework for Kotlin, designed for simplicity and ease of use."
+      }
+    ],
+    "usage": [
+      "Android Development",
+      "Server-Side Development",
+      "Desktop Applications",
+      "Web Development"
+    ],
+    "platforms": [
+      "Windows",
+      "Linux",
+      "macOS",
+      "Android"
+    ],
+    "ides": [
+      "IntelliJ IDEA",
+      "Android Studio",
+      "Visual Studio Code",
+      "Eclipse"
+    ]
+  }
+  
+  
+]

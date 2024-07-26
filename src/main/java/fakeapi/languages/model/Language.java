@@ -3,7 +3,6 @@ package fakeapi.languages.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Date;
 import java.util.List;
 
 /**
@@ -15,10 +14,10 @@ public class Language {
     private Integer id;
     private String name;
     private String description;
-    private Date year;
+    private Integer year;
     private List<Author> authors;
     private String maintainer;
-    private String versionLTS;
+    private String version;
     private List<String> license;
     private Boolean openSource;
     private String github;

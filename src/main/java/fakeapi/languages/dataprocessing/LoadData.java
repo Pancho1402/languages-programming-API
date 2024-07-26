@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+import com.fasterxml.jackson.core.type.TypeReference;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
@@ -27,7 +27,7 @@ public class LoadData {
             ObjectMapper objectMapper = new ObjectMapper();
             File file = new File("languages.json");
 
-            List<Language> languages = Collections.singletonList(objectMapper.readValue(file, Language.class));
+            List<Language> languages = objectMapper.readValue(file, new TypeReference<List<Language>>() {});
             return  args -> logger.info("Loading{}", service.saveAll(languages));
         }catch (IOException e){
             return args -> logger.error(e.getMessage());
