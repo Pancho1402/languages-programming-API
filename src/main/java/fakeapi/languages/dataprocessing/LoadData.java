@@ -27,8 +27,8 @@ public class LoadData {
             ObjectMapper objectMapper = new ObjectMapper();
             File file = new File("languages.json");
 
-            List<Language> languages = objectMapper.readValue(file, new TypeReference<List<Language>>() {});
-            return  args -> logger.info("Loading:{", service.saveAll(languages),"}");
+            var languages = objectMapper.readValue(file, new TypeReference<List<Language>>() {});
+            return  args -> logger.info("Loading:", service.saveAll(languages));
         }catch (IOException e){
             return args -> logger.error(e.getMessage());
         }
