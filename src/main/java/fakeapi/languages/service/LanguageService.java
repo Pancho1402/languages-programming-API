@@ -11,17 +11,17 @@ import java.util.*;
 public class LanguageService {
     List<Language> languages = new ArrayList<>();
 
-    public List<Language> getAllLanguages(){
+    public List<Language> getAll(){
         return languages;
     }
 
-    public Language getLanguageByName(String name){
+    public Language getByName(String name){
         return languages.stream()
                 .filter(element -> element.getName().equals(name))
                 .findFirst().orElse(null);
     }
 
-    public List<Language> postLanguage(Language language){
+    public List<Language> save(Language language){
         languages.add(language);
         return languages;
     }
@@ -31,7 +31,7 @@ public class LanguageService {
         return this.languages;
     }
 
-    public void putLanguage(Integer id, Language language){
+    public void update(Integer id, Language language){
         languages.stream()
                 .filter(element -> element.getId().equals(id))
                 .forEach(element -> {
@@ -39,7 +39,7 @@ public class LanguageService {
                 });
     }
 
-    public void deleteLanguage(Integer id){
+    public void delete(Integer id){
         languages.removeIf(element -> element.getId().equals(id));
     }
 

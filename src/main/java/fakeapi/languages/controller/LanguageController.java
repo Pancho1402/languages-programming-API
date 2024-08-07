@@ -26,9 +26,9 @@ public class LanguageController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Language>> getAllLanguages() {
+    public ResponseEntity<List<Language>> getAll() {
         try {
-            List<Language> list = service.getAllLanguages();
+            List<Language> list = service.getAll();
             return ResponseEntity.ok(list);
         } catch (Exception e) {
             logger.error(e.getMessage());
@@ -37,9 +37,9 @@ public class LanguageController {
     }
 
     @GetMapping("/{name}")
-    public ResponseEntity<Language> getLanguage(@PathVariable(value = "name") String name) {
+    public ResponseEntity<Language> getByName(@PathVariable(value = "name") String name) {
         try {
-            Language language = service.getLanguageByName(name);
+            Language language = service.getByName(name);
             return ResponseEntity.ok(language);
         }catch (Exception e) {
             logger.error(e.getMessage());
@@ -47,9 +47,9 @@ public class LanguageController {
         }
     }
     @PostMapping()
-    public ResponseEntity<List<Language>> postLanguage(@RequestBody Language language) {
+    public ResponseEntity<List<Language>> saveLanguage(@RequestBody Language language) {
         try {
-            List<Language> list = service.postLanguage(language);
+            List<Language> list = service.save(language);
             return ResponseEntity.ok(list);
         } catch (Exception e) {
             logger.error(e.getMessage());
@@ -57,9 +57,9 @@ public class LanguageController {
         }
     }
     @PutMapping("/{id}")
-    public ResponseEntity<HttpStatus> putLanguage(@PathVariable(value = "id") Integer id, Language language){
+    public ResponseEntity<HttpStatus> updateLanguage(@PathVariable(value = "id") Integer id, Language language){
         try {
-            service.putLanguage(id, language);
+            service.update(id, language);
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
             logger.error(e.getMessage());
@@ -69,7 +69,7 @@ public class LanguageController {
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> deleteLanguage(@PathVariable(value = "id") Integer id){
         try {
-            service.deleteLanguage(id);
+            service.delete(id);
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
             logger.error(e.getMessage());
