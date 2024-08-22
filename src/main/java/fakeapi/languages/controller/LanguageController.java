@@ -2,6 +2,9 @@ package fakeapi.languages.controller;
 
 import fakeapi.languages.model.Language;
 import fakeapi.languages.service.LanguageService;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -9,6 +12,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
 
 /**
  * @author Pancho1402
@@ -19,16 +26,17 @@ import java.util.List;
 public class LanguageController {
 
     private final LanguageService service;
-    private static final Logger logger = LoggerFactory.getLogger(LanguageController.class);
+    private final Logger logger = LoggerFactory.getLogger(LanguageController.class);
 
     public LanguageController(LanguageService service) {
         this.service = service;
     }
-
     @GetMapping()
-    public ResponseEntity<List<Language>> getAll() {
+    public ResponseEntity<List<Language>> getAll(
+        @RequestParam(name = "page_min", required = false) Integer min,
+        @RequestParam(name = "page_max", required = false) Integer max) {
         try {
-            List<Language> list = service.getAll();
+            List<Language> list = service.getAll(min, max);
             return ResponseEntity.ok(list);
         } catch (Exception e) {
             logger.error(e.getMessage());
@@ -37,7 +45,8 @@ public class LanguageController {
     }
 
     @GetMapping("/{name}")
-    public ResponseEntity<Language> getByName(@PathVariable(value = "name") String name) {
+    public ResponseEntity<Language> getLanguageByName(@NotBlank
+     @PathVariable(value = "name") final String name) {
         try {
             Language language = service.getByName(name);
             return ResponseEntity.ok(language);
@@ -46,8 +55,9 @@ public class LanguageController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+    
     @PostMapping()
-    public ResponseEntity<List<Language>> saveLanguage(@RequestBody Language language) {
+    public ResponseEntity<List<Language>> saveLanguage(@NotNull @RequestBody final Language language) {
         try {
             List<Language> list = service.save(language);
             return ResponseEntity.ok(list);
@@ -57,7 +67,8 @@ public class LanguageController {
         }
     }
     @PutMapping("/{id}")
-    public ResponseEntity<HttpStatus> updateLanguage(@PathVariable(value = "id") Integer id, Language language){
+    public ResponseEntity<HttpStatus> updateLanguage(@PathVariable(value = "id") final Integer id,
+     @NotNull @RequestBody final Language language){
         try {
             service.update(id, language);
             return ResponseEntity.noContent().build();
@@ -67,7 +78,7 @@ public class LanguageController {
         }
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<HttpStatus> deleteLanguage(@PathVariable(value = "id") Integer id){
+    public ResponseEntity<HttpStatus> deleteLanguage(@PathVariable(value = "id") final Integer id){
         try {
             service.delete(id);
             return ResponseEntity.noContent().build();

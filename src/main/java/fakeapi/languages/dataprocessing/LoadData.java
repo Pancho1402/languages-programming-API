@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import com.fasterxml.jackson.core.type.TypeReference;
 import java.io.File;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -19,7 +18,7 @@ import java.util.List;
  */
 @Configuration
 public class LoadData {
-    private static final Logger logger = LoggerFactory.getLogger(LoadData.class);
+    private final Logger logger = LoggerFactory.getLogger(LoadData.class);
 
     @Bean
     CommandLineRunner initData(LanguageService service){
@@ -28,9 +27,11 @@ public class LoadData {
             File file = new File("languages.json");
 
             var languages = objectMapper.readValue(file, new TypeReference<List<Language>>() {});
-            return  args -> logger.info(" Data loading", service.saveAll(languages));
+
+            return  args -> logger.info("Data loading", service.saveAll(languages));
         }catch (IOException e){
             return args -> logger.error(e.getMessage());
         }
     }
 }
+

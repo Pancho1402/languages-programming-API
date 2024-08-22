@@ -9,30 +9,37 @@ import java.util.*;
  */
 @Service
 public class LanguageService {
-    List<Language> languages = new ArrayList<>();
+    
+    private final List<Language> languages = new ArrayList<>();
 
-    public List<Language> getAll(){
+    public List<Language> getAll(Integer min, Integer max) {
+        if(Objects.isNull(min)) min = 1;
+
+        if(max != null && max > 0) return languages.subList(--min, max);
+
         return languages;
     }
 
     public Language getByName(String name){
         return languages.stream()
-                .filter(element -> element.getName().equals(name))
+                .filter(element -> element.getName().toLowerCase().equals(name))
                 .findFirst().orElse(null);
     }
 
     public List<Language> save(Language language){
-        languages.add(language);
+        List<Language> list = this.languages;
+        list.add(language);
         return languages;
     }
 
     public List<Language> saveAll(List<Language> languages){
-        this.languages = languages;
+        this.languages.addAll(languages);
         return this.languages;
     }
 
     public void update(Integer id, Language language){
-        languages.stream()
+        List<Language> list = this.languages;
+        list.stream()
                 .filter(element -> element.getId().equals(id))
                 .forEach(element -> {
                     element.setName(language.getName());
@@ -40,7 +47,8 @@ public class LanguageService {
     }
 
     public void delete(Integer id){
-        languages.removeIf(element -> element.getId().equals(id));
+        List<Language> list = this.languages;
+        list.removeIf(element -> element.getId().equals(id));
     }
 
 }
